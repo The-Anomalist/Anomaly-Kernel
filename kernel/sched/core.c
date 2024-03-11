@@ -8352,6 +8352,15 @@ static void uclamp_set(struct cgroup_subsys_state *css)
                 {"dex2oat",             "0",  "60",  0},
         	{"background",          "0",  "50",  0},
         	{"system-background",   "0",  "50",  0},
+		{"top-app",             "10", "max",  1, 20480},
+		{"rt",			"0",  "max",  1, 20480},
+		{"nnapi-hal",		"0",  "max",  1, 20480},
+       		{"foreground",          "0",  "max",  1, 20480},
+                {"camera-daemon",       "10", "max",  1, 20480},
+                {"system",              "0",  "max",  0, 20480},
+                {"dex2oat",             "0",  "60",   0,   512},
+        	{"background",          "0",  "50",   0,  1024},
+        	{"system-background",   "0",  "50",   0,  1024},
 	};
 
         if(!css->cgroup->kn)
