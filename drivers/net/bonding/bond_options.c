@@ -1074,9 +1074,9 @@ static int bond_option_arp_ip_targets_set(struct bonding *bond,
 	__be32 target;
 
 	if (newval->string) {
-		if (strlen(newval->string) < 1 ||
-		    !in4_pton(newval->string + 1, -1, (u8 *)&target, -1, NULL)) {
-			netdev_err(bond->dev, "invalid ARP target specified\n");
+		if (!in4_pton(newval->string+1, -1, (u8 *)&target, -1, NULL)) {
+			netdev_err(bond->dev, "invalid ARP target %pI4 specified\n",
+				   &target);
 			return ret;
 		}
 		if (newval->string[0] == '+')

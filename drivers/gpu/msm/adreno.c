@@ -35,7 +35,7 @@ static unsigned int counter_delta(struct kgsl_device *device,
 
 static struct devfreq_msm_adreno_tz_data adreno_tz_data = {
 	.bus = {
-		.max = 350,
+		.max = 900,
 		.floating = true,
 	},
 	.device_id = KGSL_DEVICE_3D0,
@@ -1077,7 +1077,6 @@ static void adreno_of_get_initial_pwrlevel(struct adreno_device *adreno_dev,
 		init_level = 1;
 
 	pwr->active_pwrlevel = init_level;
-	pwr->default_pwrlevel = init_level;
 }
 
 static void adreno_of_get_limits(struct adreno_device *adreno_dev,
