@@ -9,7 +9,7 @@
 		compatible = "operating-points-v2";
 
 		opp-934000000 {
-			opp-hz = /bits/ 64 <934000000>;
+			opp-hz = /bits/ 64 <942000000>;
 			opp-microvolt = <RPMH_REGULATOR_LEVEL_TURBO_L1>;
 		};
 
@@ -84,7 +84,7 @@
 
 			qcom,gpu-pwrlevel@0 {
 				reg = <0>;
-				qcom,gpu-freq = <934000000>;
+				qcom,gpu-freq = <942000000>;
 				qcom,bus-freq-ddr7 = <11>;
 				qcom,bus-min-ddr7 = <11>;
 				qcom,bus-max-ddr7 = <11>;
