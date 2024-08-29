@@ -2227,8 +2227,7 @@ int kgsl_pwrctrl_init(struct kgsl_device *device)
 
 	if (of_property_read_bool(pdev->dev.of_node, "qcom,no-nap"))
 		device->pwrctrl.ctrl_flags |= BIT(KGSL_PWRFLAGS_NAP_OFF);
-		
-	pwr->num_pwrlevels = 10;
+
 	if (pwr->num_pwrlevels == 0) {
 		dev_err(device->dev, "No power levels are defined\n");
 		result = -EINVAL;
@@ -2258,10 +2257,10 @@ int kgsl_pwrctrl_init(struct kgsl_device *device)
 
 	kgsl_clk_set_rate(device, pwr->num_pwrlevels - 1);
 
-	freq = clk_round_rate(pwr->grp_clks[9], KGSL_RBBMTIMER_CLK_FREQ);
+	freq = clk_round_rate(pwr->grp_clks[6], KGSL_RBBMTIMER_CLK_FREQ);
 	if (freq > 0)
-		kgsl_pwrctrl_clk_set_rate(pwr->grp_clks[9],
-			freq, clocks[9]);
+		kgsl_pwrctrl_clk_set_rate(pwr->grp_clks[6],
+			freq, clocks[6]);
 
 	_isense_clk_set_rate(pwr, pwr->num_pwrlevels - 1);
 
